@@ -10,7 +10,7 @@ class AppAsset {
   
   
   //Images
-  static const String applogo = '$imageUrl/onboarding.png';
+  static const String applogo = '$imageUrl/app_logo.png';
   static const String logoShade = '$imageUrl/logo_shade.png';
   static const String onboardingOne = '$imageUrl/onboarding_one.jpg';
   static const String onboardingTwo = '$imageUrl/onboarding_two.jpg';
@@ -20,7 +20,8 @@ class AppAsset {
   //Icons
   static String back = '$iconUrl/back.svg';
   static String eye = '$iconUrl/eye.svg';
-  static String eyeOff = '$iconUrl/eye_off.svg';
+  static String eyeOff = '$iconUrl/eye-off.svg';
   static String image = '$iconUrl/image.svg';
+  static String email = '$iconUrl/email.svg';
 
 }

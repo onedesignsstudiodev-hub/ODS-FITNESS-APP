@@ -3,14 +3,16 @@ import 'dart:async';
 import 'package:fitness_app/component/button/app_button.dart';
 import 'package:fitness_app/core/resource/app_asset.dart';
 import 'package:fitness_app/core/resource/app_color.dart';
+import 'package:fitness_app/core/utils/app_system_ui_overlay.dart';
 import 'package:fitness_app/core/utils/extension/app_edge_insets.dart';
 import 'package:fitness_app/modules/onboarding/domain/entities/onboarding_entity.dart';
 import 'package:fitness_app/modules/onboarding/presentation/blocs/onboarding/onboarding_bloc.dart';
 import 'package:fitness_app/modules/onboarding/widgets/onboarding_pagination_widget.dart';
 import 'package:fitness_app/modules/onboarding/widgets/onboarding_screen_skeleton.dart';
+import 'package:fitness_app/routes/app_route_names.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class OnboardingView extends StatefulWidget {
   final OnboardingBloc bloc;
@@ -87,12 +89,9 @@ class _OnboardingViewState extends State<OnboardingView> {
 
   @override
   Widget build(BuildContext context) {
-    return AnnotatedRegion<SystemUiOverlayStyle>(
-      value: const SystemUiOverlayStyle(
-        statusBarColor: Colors.white,
-        statusBarIconBrightness: Brightness.light,
-        statusBarBrightness: Brightness.light,
-      ),
+    return AppSystemUiOverlay(
+      statusBarColor: Colors.white,
+      iconBrightness: Brightness.light,
       child: Scaffold(
         extendBodyBehindAppBar: true,
         backgroundColor: AppColor.black,
@@ -143,11 +142,12 @@ class _OnboardingViewState extends State<OnboardingView> {
                     radius: 50,
                     width: 150,
                     fontSize: 18,
-                    isDisable: state.currentPage >= _pages.length - 1,
                     title: 'Next',
-                    onTap: () => widget.bloc.add(
-                      OnboardingPageChangedEvent(state.currentPage + 1),
-                    ),
+                    onTap: () => state.currentPage >= _pages.length - 1
+                        ? context.goNamed(AppRouteNames.login)
+                        : widget.bloc.add(
+                            OnboardingPageChangedEvent(state.currentPage + 1),
+                          ),
                   ),
                 );
               },

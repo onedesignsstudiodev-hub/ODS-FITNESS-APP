@@ -1,4 +1,4 @@
-import 'package:material_ui/material_ui.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -45,7 +45,7 @@ class LabelTextField extends StatefulWidget {
     this.successColor = AppColor.success,
     this.errorColor = AppColor.errorText,
     this.focusedColor = AppColor.primary,
-    this.borderColor = const Color(0xFFD0D5DD),
+    this.borderColor = AppColor.primaryText,
     this.disabledColor = AppColor.disabledText,
     this.iconColor,
     this.validateWhileTyping = true,
@@ -359,7 +359,7 @@ class _LabelTextFieldState extends State<LabelTextField> {
   OutlineInputBorder _outlineBorder(Color color) {
     return OutlineInputBorder(
       borderRadius: BorderRadius.circular(widget.radius.r),
-      borderSide: BorderSide(color: color, width: 1),
+      borderSide: BorderSide(color: color, width: 2),
     );
   }
 
@@ -370,10 +370,8 @@ class _LabelTextFieldState extends State<LabelTextField> {
         _obscureText ? AppAsset.eye : AppAsset.eyeOff,
         height: 24.h,
         width: 24.w,
-        fit: BoxFit.scaleDown,
-        theme: SvgTheme(currentColor: color),
         colorFilter: ColorFilter.mode(color, BlendMode.srcIn),
-      ).paddingAll(12.h),
+      ).paddingOnly(right: 15),
     );
   }
 }

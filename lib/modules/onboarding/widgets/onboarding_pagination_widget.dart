@@ -41,7 +41,7 @@ class OnboardingPaginationWidget extends StatelessWidget {
                 curve: Curves.easeInOutCubic,
                 width: isActive ? segmentWidth * 3 : segmentWidth,
                 height: 8,
-                color: isActive ? color ?? AppColor.primary : const Color(0xFFD6D6D6),
+                color: isActive ? color ?? AppColor.primary : AppColor.white,
               ),
             ),
           ),
