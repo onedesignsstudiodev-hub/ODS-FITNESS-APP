@@ -1,0 +1,3 @@
+import 'package:fitness_app/modules/onboarding/presentation/routes/onboarding_route.dart';
+
+  OnboardingRoute.route,
