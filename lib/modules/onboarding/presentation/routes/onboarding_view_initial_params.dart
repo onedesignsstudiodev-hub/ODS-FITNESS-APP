@@ -2,22 +2,16 @@ class OnboardingViewInitialParams {
   const OnboardingViewInitialParams();
 
   factory OnboardingViewInitialParams.fromUri(Uri uri) {
-    return OnboardingViewInitialParams(
-      // Parse the URI parameters as needed
-    );
+    return const OnboardingViewInitialParams();
   }
 
   factory OnboardingViewInitialParams.fromExtra(Object? extra) {
-    return OnboardingViewInitialParams(
-      // Parse the extra data as needed
-    );
+    return const OnboardingViewInitialParams();
   }
 
   factory OnboardingViewInitialParams.fromQuery(
     Map<String, String> queryParameters,
   ) {
-    return OnboardingViewInitialParams(
-      // Parse the query parameters as needed
-    );
+    return const OnboardingViewInitialParams();
   }
 }

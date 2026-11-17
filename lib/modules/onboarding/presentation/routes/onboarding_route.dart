@@ -7,16 +7,13 @@ import 'package:fitness_app/modules/onboarding/presentation/routes/onboarding_vi
 import 'package:fitness_app/modules/onboarding/presentation/views/onboarding_view.dart';
 
 class OnboardingRoute {
-  static final String name = AppRouteNames.feature(
-    'onboarding',
-    'onboarding',
-  );
+  static const String name = AppRouteNames.onboarding;
   static const String path = AppRoutePaths.onboarding;
 
   static GoRoute get route => GoRoute(
     name: name,
     path: path,
-    builder: (context, state) {
+    builder: (_, state) {
       final params = OnboardingViewInitialParams.fromUri(state.uri);
       final bloc = getIt<OnboardingBloc>(param1: params);
 
