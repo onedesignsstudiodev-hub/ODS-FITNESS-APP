@@ -11,9 +11,11 @@ import 'package:fitness_app/core/utils/extension/app_font_weight.dart';
 import 'package:fitness_app/core/utils/extension/app_sized_box.dart';
 import 'package:fitness_app/core/utils/extension/app_text_style.dart';
 import 'package:fitness_app/modules/auth/widgets/check_box_widgets.dart';
+import 'package:fitness_app/routes/app_route_names.dart';
 import 'package:flutter/material.dart';
 import 'package:fitness_app/core/resource/app_color.dart';
 import 'package:fitness_app/modules/auth/presentation/blocs/login/login_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class LoginView extends StatefulWidget {
   final LoginBloc bloc;
@@ -96,24 +98,27 @@ class _LoginViewState extends State<LoginView> {
             context.pagePadding.right,
             context.pagePadding.bottom + 20,
           ),
-          child: RichText(
-            textAlign: TextAlign.center,
-            text: TextSpan(
-              style: context.bodyText.copyWith(
-                color: AppColor.primaryText,
-                fontWeight: AppFontWeight.semiBold,
-              ),
-              children: [
-                const TextSpan(text: "Don't have an account?"),
-                const WidgetSpan(child: SizedBox(width: 7)),
-                TextSpan(
-                  text: 'Sign up',
-                  style: context.bodyText.copyWith(
-                    color: AppColor.primary,
-                    fontWeight: AppFontWeight.semiBold,
-                  ),
+          child: GestureDetector(
+            onTap: () => context.pushNamed(AppRouteNames.register),
+            child: RichText(
+              textAlign: TextAlign.center,
+              text: TextSpan(
+                style: context.bodyText.copyWith(
+                  color: AppColor.primaryText,
+                  fontWeight: AppFontWeight.semiBold,
                 ),
-              ],
+                children: [
+                  const TextSpan(text: "Don't have an account?"),
+                  const WidgetSpan(child: SizedBox(width: 7)),
+                  TextSpan(
+                    text: 'Sign up',
+                    style: context.bodyText.copyWith(
+                      color: AppColor.primary,
+                      fontWeight: AppFontWeight.semiBold,
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ),
