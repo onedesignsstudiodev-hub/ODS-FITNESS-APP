@@ -23,5 +23,6 @@ class AppAsset {
   static String eyeOff = '$iconUrl/eye-off.svg';
   static String image = '$iconUrl/image.svg';
   static String email = '$iconUrl/email.svg';
+  static String arrow = '$iconUrl/arrow.svg';
 
 }
